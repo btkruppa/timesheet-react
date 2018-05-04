@@ -1,0 +1,4 @@
+export const questionBankTypes = {
+  FETCH_QUESTION_BANK: 'FETCH_QUESTION_BANK',
+  SAVE_QUESTION_BANK: 'SAVE_QUESTION_BANK',
+};
