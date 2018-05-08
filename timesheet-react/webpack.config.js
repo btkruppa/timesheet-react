@@ -4,6 +4,9 @@ var webpack = require('webpack');
 
 var basePath = __dirname;
 
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
 module.exports = {
   context: path.join(basePath, 'src'),
   resolve: {
@@ -84,5 +87,17 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
     }),
+    new CopyWebpackPlugin([
+      { from: '../assets', to: 'assets' }
+      ], {
+      copyUnmodified: true
+    }),
+    new CleanWebpackPlugin(['dist', 'build'], {
+      root: 'dist',
+      verbose: true, 
+      dry: false,
+      exclude: ['shared.js']
+    })
   ],
 };
+
